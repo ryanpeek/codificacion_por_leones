@@ -3,6 +3,8 @@
 
 # to make a section header: Ctrl + Shift + R
 
+# ryan typed an example
+
 # Load Libraries ----------------------------------------------------------
 
 library(tidyverse) # cleaning and plotting data
