@@ -13,3 +13,8 @@
 
 ## 4. Ryan adds some code online in the repo and saves it online. We need to PULL those changes to our local copy on our computer.
 
+## showing command line:
+## to check status: git status
+## to stage or add a file: git add <filename>
+## to remove from being staged: git restore --staged <filename>
+
