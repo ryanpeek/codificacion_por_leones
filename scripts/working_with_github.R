@@ -17,4 +17,9 @@
 ## to check status: git status
 ## to stage or add a file: git add <filename>
 ## to remove from being staged: git restore --staged <filename>
+## before you can push, you need to add commit:
+## git commit -m "and a message here"
+
+
+
 
