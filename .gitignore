@@ -45,5 +45,3 @@ vignettes/*.pdf
 # Rmd htmls
 *.html
 
-# example of adding to gitignore
-scripts/working_with_github.R
