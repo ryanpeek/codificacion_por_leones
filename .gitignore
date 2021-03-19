@@ -45,3 +45,5 @@ vignettes/*.pdf
 # Rmd htmls
 *.html
 
+docs/*.html
+

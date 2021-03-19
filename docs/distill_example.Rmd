@@ -1,0 +1,150 @@
+---
+title: "Example"
+date: "`r Sys.Date()`"
+
+output: 
+  distill::distill_article: 
+    highlight: tango
+    toc: false
+    theme: theme.css
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(here)
+```
+
+:::obj
+
+Making new code chunk shortcut is Ctrl + Alt + I.
+
+:::
+
+
+## Important R Chunk Settings
+
+ - echo
+ - eval
+ - include
+ - fig. (there are many)
+
+### Echo = FALSE/TRUE
+
+I don't want to see this code:
+
+echo==FALSE
+
+```{r code1, echo=FALSE}
+# hidden code
+print("This is text that will print")
+# this is hidden too
+
+```
+
+echo==TRUE
+
+```{r code2, echo=TRUE}
+# hidden code
+print("This is text that will print")
+# this is hidden too
+
+```
+
+### Eval = TRUE/FALSE
+
+This is good for evaluation code or not, depending on what you want to show.
+You can combine these (echo + eval) to control your document.
+
+**eval=FALSE & echo=FALSE**
+
+```{r code3, eval=FALSE}
+library(tidyverse)
+print("This shouldn't show up")
+```
+
+**eval=TRUE & echo=TRUE**
+
+```{r code4, eval=TRUE, echo=TRUE}
+library(tidyverse)
+print("This shouldn't show up")
+```
+
+# Figure
+
+using the `knitr::include_graphic()` function:
+
+ - can control figure height or width with the R chunk options.
+
+```{r includegraphics_html, out.width='50%', fig.cap="This is a soup can", eval=TRUE}
+
+# straight from web:
+knitr::include_graphics('https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Can%2C_food_%28AM_2007.41.2-1%29.jpg/766px-Can%2C_food_%28AM_2007.41.2-1%29.jpg')
+
+```
+
+## for PDFs
+
+We can't use `out.width`, but we can use `fig.width` for out chunks.
+
+Try using: `tinytex::tlmgr_install("pdfcrop")` to help with cropping. The default is 6.5x4.5in
+
+
+```{r includegraphicsPDF, out.width='50%', fig.cap="This is also a soup can", eval=FALSE}
+
+# straight from web:
+knitr::include_graphics(here("imgs","soup_can.jpg"))
+
+```
+
+
+
+# Use the here() Package
+
+Use this package to make links relative:
+
+```{r here, echo=TRUE}
+
+library(here)
+
+salsa <- read.csv(here("data", "Argos_Salsa.csv"))
+head(salsa)
+
+```
+
+
+# Tables in RMarkdown
+
+Couple packages that are good, these are the easiest to use.
+
+ - `kable()`
+ - `DT::DT()`
+ - `gt`
+ 
+```{r tables_kable, echo=TRUE}
+
+knitr::kable(head(salsa))
+
+```
+ 
+ 
+```{r tables_DT, eval=TRUE, echo=TRUE}
+
+DT::datatable(head(salsa))
+
+```
+ 
+
+
+## PANDOC and MikTex or TinyTex
+
+When rendering to PDF you need a few things:
+
+ - `tinytex` package
+
+
+To use special characters use `$` around the character and a `\`
+
+$\Delta$ 
+$\mu$ 
+$\sigma$
